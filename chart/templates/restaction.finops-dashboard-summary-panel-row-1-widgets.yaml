@@ -11,7 +11,7 @@ spec:
     path: "/compute/costs"
     verb: POST
     payload: |
-      ${ {table_name: "{{ .Values.tableName }}", resource_name: "%", resource_group_name: "%" } }
+      ${ {table_name: "{{ .Values.tableName }}", composition_id: "%" } }
     headers:
     - 'Accept: application/json'
     - 'Content-Type: application/json'
@@ -26,10 +26,10 @@ spec:
     endpointRef: 
       name: finops-database-handler-endpoint
       namespace: {{ .Release.Namespace }}
-    path: "/compute/costsbreakdown_new_frontend"
+    path: "/compute/costsbreakdown"
     verb: POST
     payload: |
-      ${ {table_name: "{{ .Values.tableName }}", resource_name: "%", resource_group_name: "%" } }
+      ${ {table_name: "{{ .Values.tableName }}", composition_id: "%" } }
     headers:
     - 'Accept: application/json'
     - 'Content-Type: application/json'

@@ -18,6 +18,7 @@ spec:
     - title: Warning
       valueKey: warning
       kind: icon
+      color: red
     - title: Cost
       valueKey: cost
     data: []
