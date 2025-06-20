@@ -5,15 +5,15 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   widgetData:
-    resourceRefId: finops-dashboard-route
+    resourceRefId: finops-dashboard-page
     label: FinOps
     icon: fa-hand-holding-dollar
     path: /finops
     order: 90 # Always the last object of the menu
   resourcesRefs:
-    - id: finops-dashboard-route
+    - id: finops-dashboard-page
       apiVersion: widgets.templates.krateo.io/v1beta1
-      name: finops-dashboard-route
+      name: finops-dashboard-page
       namespace: {{ .Release.Namespace }}
-      resource: routes
+      resource: pages
       verb: GET
