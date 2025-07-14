@@ -5,6 +5,14 @@ This is the composable FinOps dashboard.
 - Krateo >= 2.5.0
 - Must be installed in the same namespace as [composable-portal-starter](https://github.com/krateoplatformops/composable-portal-starter)
 
+## How to install
+
+```sh
+$ helm repo add krateo https://charts.krateo.io
+$ helm repo update krateo
+$ helm install finops-dashboard krateo/finops-dashboard -n krateo-system
+```
+
 # Resource Tree
 [NavMenuItem nav-menu-item-dashboard-finops](chart/templates/navmenuitem.nav-menu-item-finops-dashboard.yaml)
 - [Page finops-dashboard-page](chart/templates/pages.finops-dashboard-page.yaml)
