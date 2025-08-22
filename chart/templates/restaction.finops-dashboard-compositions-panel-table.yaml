@@ -24,7 +24,7 @@ spec:
     verb: GET 
     continueOnError: true
     errorKey: allCompositionsError
-    filter: .items
+    filter: .allCompositions.items
   - name: allCosts
     dependsOn: 
       name: allCompositions
@@ -47,10 +47,10 @@ spec:
               ) } }
     filter: >
       {
-      cost: .billed_cost,
-      key: .composition_id,
-      opt: .opt,
-      name: .name,
-      namespace: .namespace,
-      warning: (if (.opt | tonumber? // 0) < -80 then ("fa-solid fa-triangle-exclamation") else ("") end )
+      cost: .allCosts.billed_cost,
+      key: .allCosts.composition_id,
+      opt: .allCosts.opt,
+      name: .allCosts.name,
+      namespace: .allCosts.namespace,
+      warning: (if (.allCosts.opt | tonumber? // 0) < -80 then ("fa-solid fa-triangle-exclamation") else ("") end )
       }

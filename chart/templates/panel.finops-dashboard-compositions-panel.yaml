@@ -10,6 +10,7 @@ spec:
     items:
       - resourceRefId: table
   resourcesRefs:
+    items:
     - id: table
       apiVersion: widgets.templates.krateo.io/v1beta1
       name: finops-dashboard-compositions-panel-table

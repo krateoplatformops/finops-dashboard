@@ -9,6 +9,7 @@ spec:
       - resourceRefId: finops-dashboard-summary-panel
       - resourceRefId: finops-dashboard-compositions-panel
   resourcesRefs:
+    items:
     - id: finops-dashboard-summary-panel
       apiVersion: widgets.templates.krateo.io/v1beta1
       name: finops-dashboard-summary-panel

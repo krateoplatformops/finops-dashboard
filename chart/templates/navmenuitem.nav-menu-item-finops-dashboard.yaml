@@ -11,6 +11,7 @@ spec:
     path: /finops
     order: 90 # Always the last object of the menu
   resourcesRefs:
+    items:
     - id: finops-dashboard-page
       apiVersion: widgets.templates.krateo.io/v1beta1
       name: finops-dashboard-page
