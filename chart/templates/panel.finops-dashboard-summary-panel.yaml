@@ -11,6 +11,7 @@ spec:
       - resourceRefId: row-1
       - resourceRefId: row-2
   resourcesRefs:
+    items:
     - id: row-1
       apiVersion: widgets.templates.krateo.io/v1beta1
       name: finops-dashboard-summary-panel-row-1

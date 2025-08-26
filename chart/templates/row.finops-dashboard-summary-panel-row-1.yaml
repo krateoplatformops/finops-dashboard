@@ -10,6 +10,7 @@ spec:
       - resourceRefId: cost-linechart
         size: 18
   resourcesRefs:
+    items:
     - id:  cost-piechart
       apiVersion: widgets.templates.krateo.io/v1beta1
       name: finops-dashboard-summary-panel-row-1-piechart
