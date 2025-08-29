@@ -54,3 +54,51 @@ spec:
       namespace: .allCosts.namespace,
       warning: (if (.allCosts.opt | tonumber? // 0) < -80 then ("fa-solid fa-triangle-exclamation") else ("") end )
       }
+  filter: >
+    {
+      allCosts:
+        ( if (.allCosts | type) == "array" then
+            .allCosts
+            | map(
+                [
+                  # cost (decimal if numeric, else string)
+                  (
+                    { valueKey: "cost", kind: "jsonSchemaType",
+                      type: ( if (.cost | tonumber? != null) then "decimal" else "string" end )
+                    }
+                    + ( if (.cost | tonumber? != null)
+                        then { decimalValue: (.cost | tostring) }
+                        else { stringValue: (.cost | tostring) }
+                      end )
+                  ),
+                  # key
+                  { valueKey: "key", kind: "jsonSchemaType", type: "string", stringValue: (.key | tostring) },
+                  # opt (decimal if numeric, else string)
+                  (
+                    { valueKey: "opt", kind: "jsonSchemaType",
+                      type: ( if (.opt | tonumber? != null) then "decimal" else "string" end )
+                    }
+                    + ( if (.opt | tonumber? != null)
+                        then { decimalValue: (.opt | tostring) }
+                        else { stringValue: (.opt | tostring) }
+                      end )
+                  ),
+                  # name
+                  { valueKey: "name", kind: "jsonSchemaType", type: "string", stringValue: (.name | tostring) },
+                  # namespace
+                  { valueKey: "namespace", kind: "jsonSchemaType", type: "string", stringValue: (.namespace | tostring) },
+                  # warning -> icon if present, otherwise empty string cell
+                  ( if (.warning // "") == "" then
+                      { valueKey: "warning", kind: "jsonSchemaType", type: "string", stringValue: "" }
+                    else
+                      { valueKey: "warning", kind: "icon", stringValue: .warning }
+                    end
+                  )
+                ]
+              )
+          elif (.allCosts | type) == "object" then
+            []
+          else
+            []
+          end )
+    }
