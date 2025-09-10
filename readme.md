@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository has been archived. Go here https://github.com/krateoplatformops-blueprints/portal-finops-dashboard for the most recent version.
+
 # FinOps Dashboard
 This is the composable FinOps dashboard.
 
